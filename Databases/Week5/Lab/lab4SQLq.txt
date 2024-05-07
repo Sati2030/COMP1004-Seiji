@@ -1,0 +1,94 @@
+SELECT (artist_name) AS "Performer" FROM artist ORDER BY artist_name
+
+SELECT genre_name AS "Known Genres" FROM genre ORDER BY genre_name
+
+SELECT  album_title as "Album Title", album_price as "Album Price" FROM album
+ORDER BY album_price DESC
+
+SELECT DISTINCT album_price AS "Price Categories" FROM Album ORDER BY album_price
+
+SELECT (album_title) AS "Album Title" FROM Album
+WHERE album_price > 10 AND album_price <= 20
+ORDER BY album_title DESC
+
+SELECT song_title AS "Song Title" FROM Song
+WHERE song_title LIKE "a%"
+
+SELECT album_id AS "Album Number", album_title AS "Album Title", Genre.genre_name AS "Album Genre", album_price AS "Album Price" FROM Album
+JOIN Genre ON album.genre_id = Genre.genre_id
+WHERE Genre.genre_name LIKE 'Pop%' OR album_price >10
+
+8)SELECT album_title AS "Album Title" FROM Album
+JOIN Genre ON Album.genre_id = Genre.genre_id
+WHERE Genre.genre_name LIKE "Rock" AND album_price >= 10 AND album_price <= 12
+ORDER BY album_title DESC
+
+9)SELECT album_title AS "Album Title" FROM Album
+JOIN Genre ON Album.genre_id = Genre.genre_id
+WHERE album_price < 10 AND (Genre.genre_name LIKE "Rock" OR Genre.genre_name LIKE "Electronica")
+
+10)SELECT Artist.artist_name AS "Artist Name", Album.album_title AS "Album Title" FROM ArtistAlbum
+JOIN Artist ON ArtistAlbum.artist_id = Artist.artist_id
+JOIN Album ON ArtistAlbum.album_id = Album.album_id
+ORDER BY artist_name DESC
+
+11)SELECT Album.album_title as "Albums by Muse" FROM ArtistAlbum
+JOIN Album ON ArtistAlbum.album_id = Album.album_id
+JOIN Artist ON ArtistAlbum.artist_id = Artist.artist_id
+WHERE artist_name LIKE "Muse"
+ORDER BY album_title DESC
+
+12)SELECT album_title AS "Album Title" FROM Album
+WHERE genre_id = (SELECT genre_id FROM Genre WHERE genre_name LIKE "Electro House")
+
+13)SELECT Artist.artist_name as "Artist Name" FROM ArtistAlbum
+JOIN Artist ON ArtistAlbum.artist_id = Artist.artist_id
+JOIN Album ON ArtistAlbum.album_id = Album.album_id
+WHERE Album.album_price < 10
+ORDER BY artist_name
+
+14)SELECT Album.album_title AS "Album Title" FROM ArtistAlbum
+JOIN Album ON ArtistAlbum.album_id = Album.album_id
+JOIN Artist ON ArtistAlbum.artist_id = Artist.artist_id
+WHERE Artist.artist_name NOT LIKE "% %"
+
+15)SELECT album_title AS "Album Title", album_price AS "Album Price" FROM Album
+WHERE album_price < (SELECT album_price FROM Album WHERE genre_id = (SELECT genre_id FROM Genre WHERE genre_name LIKE "Pop"))
+ORDER BY album_title
+
+16)SELECT album_title AS "Album Title", Genre.genre_name AS "Genre Name", album_price AS "Album Price" FROM Album
+JOIN Genre ON Album.genre_id = Genre.genre_id
+ORDER BY genre_name ASC, album_price DESC
+
+17)SELECT album_price AS "Cheapest Album Price" FROM Album
+ORDER BY album_price ASC LIMIT 1;
+
+18)SELECT count(album_id) as "Album Count" FROM Album
+WHERE album_price == 11.99
+
+19)SELECT album_title AS "Expensive Rock Album" FROM Album
+WHERE genre_id IN (SELECT genre_id FROM Genre WHERE genre_name LIKE "Rock")
+ORDER BY album_price DESC LIMIT 1
+
+20)SELECT DISTINCT count(DISTINCT genre_id) as "Genre Count" FROM Album
+
+21)SELECT album_title AS "Album Title", album_price AS "Album Price" FROM Album
+WHERE album_price = (SELECT MIN(album_price) FROM album)
+ORDER BY album_title DESC
+
+22)SELECT song_title AS "Muse Songs" FROM Song
+WHERE song_id  IN (SELECT song_id FROM ArtistSong WHERE artist_id = (SELECT artist_id FROM Artist WHERE artist_name LIKE "Muse") )
+ORDER BY song_title DESC LIMIT 3
+
+23)SELECT genre_name AS "Genre Title", count(song.song_id) AS "No of Songs" FROM Genre
+JOIN Song ON Genre.genre_id = Song.genre_id
+GROUP BY genre_name
+ORDER BY genre_name
+
+24)SELECT Artist.artist_name as "Artist Name", count(Album.album_id) as "Album Count" FROM Artist
+JOIN ArtistAlbum ON ArtistAlbum.artist_id = Artist.artist_id
+JOIN Album ON Album.album_id = ArtistAlbum.album_id
+GROUP BY Artist.artist_name HAVING count(DISTINCT Album.album_id) > 1
+ORDER BY Artist.artist_name ASC;
+
+
