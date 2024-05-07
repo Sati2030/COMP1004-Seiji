@@ -1,0 +1,38 @@
+p,ul{
+    border: 2px solid rebeccapurple;
+    padding: .5em;
+}
+
+.block, li{
+    border: 2px solid blue;
+    padding: .5em;
+    width: 30%;
+}
+
+/*Flex indicates if it can be horizontal or vertical*/
+ul{
+    display: flex;
+    list-style: none;
+}
+
+span{
+    margin: 20px;
+    padding: 20px;
+    width: 80px;
+    height: 50px;
+    border: 2px solid red;
+    display: inline-block;
+}
+
+.inline{
+    display: inline;
+}
+
+.wrapper{
+    display:flex;
+}
+
+.wrapper > div
+{
+    flex: 1;
+}
