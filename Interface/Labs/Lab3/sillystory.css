@@ -1,0 +1,33 @@
+.nameSelector{
+    margin-bottom: 20px;
+}
+.nameSelector label{
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.checkboxes{
+    margin-bottom: 20px;
+}
+
+.checkboxes label{
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: BOLD;
+}
+
+button{
+    margin-bottom: 20px;
+}
+
+p{
+    font-size: 18px;
+    background-color: yellow;
+    width: 50%;
+}
+
+.triggered{
+    padding: 20px;
+}
+
