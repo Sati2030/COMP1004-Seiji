@@ -58,3 +58,38 @@ textBox.addEventListener("keydown", (event) =>{
     console.log(`You pressed "${event.key}"`);
 }); //Similar to Lambda
 
+const originals = [1,2,3];
+const doubled = originals.map(item => item * 2) //Map function takes a functino as parameter
+
+//Same as 
+function doubleItem(item){
+    return item * 2;
+}
+
+//Events example
+
+//html: <button>Change color</button>
+
+const btn = document.querySelector("button"); 
+//Selects buttons, if there are multiples it returns an array of all buttons
+
+function random(number){
+    return Math.floor(Math.random() * (number + 1));
+}
+
+btn.addEventListener("click",() => {
+    const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+    document.body.style.backgroundColor = rndCol;
+})
+
+//You can also do removeEventListener 
+
+//Event objects
+function bgChange(e){
+    const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+    e.target.style.backgroundColor = rndCol;
+    console.log(e);
+} // The "e" is the event object (for example the button that triggered the event)
+// e.target refers to the button itself (can have many properties)
+
+btn.addEventListener("click",bgChange);
