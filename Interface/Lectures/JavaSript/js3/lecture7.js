@@ -82,6 +82,11 @@ const superHero = JSON.parse(superHeroString);
 superHero.squadName;
 superHero.members[0].name;
 
+//other way around
+let myObj = { name: "Chris", age: 38};
+let myString = JSON.stringify(myObj); //Makes an object back into a string
+
+
 
 
 
