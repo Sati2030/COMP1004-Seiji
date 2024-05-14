@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple Forms example</title>
+        <script src="DOManipulation.js"></script>
+    </head>
+    <body>
+        <section>
+            <img src="dinosaur.png" alt="A red Tyrannosaurus Rex" />
+            <p>
+                Here we will add a link to the
+                <a href="https://www.mozilla.org/">Mozilla homepage</a>
+            </p>
+        </section>
+        <!--This would make a forms element
+        "action" would be the URL where the data should be sent
+        "method" would define what action, could be "get" or "post"
+        
+        Inside each of the inputs you can add more atributes like:
+        "value" in "text" sets a default name
+        Like as seen inside "textarea" you can add a default message
+        "placeholder" will have a greyed out text over the input
+        -->
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" name="user_name" id="name">
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="text" name="user_email" id="email">
+                </li>
+                    <label for="msg">Message:</label>
+                    <textarea name="user_message" id="message">Default message</textarea>
+            </ul>
+            <!--This button would send the data to the specified url in the form node-->
+            <button type="submit">Send your message</button>
+        </form>
+    </body>
+</html>
